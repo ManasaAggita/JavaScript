@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Practice</title>
+    <script src="chapter2.js" defer></script>
+    <!--Always add js to the last. so add defer-->
+
+</head>
+
+<body>
+
+    <h1 id="main-title">DOM Manipulation</h1>
+
+    <form id="form-example" onsubmit="return handleSubmitForm(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <button id="open-modal-btn">Open Modal</button>
+
+    <div id="content-area"></div>
+
+    <textarea id="text-area" rows="4" cols="50">Type some text...</textarea>
+
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+            <button id="close-modal-btn">Close Modal</button>
+        </div>
+    </div>
+    <script>
+        let modalBtn = document.getElementById('open-modal-btn')
+        let modalBtn2 = document.getElementById('close-modal-btn')
+        let xBtn = document.querySelector('.close')
+        let modal = document.getElementById('modal')
+        let textArea = document.getElementById('text-area')
+        let nameInput =document.getElementById('name')
+        let ageInput=document.getElementById('age')
+        let contentArea= document.getElementById('content-area')
+        
+        function handleModalOpen(){
+           console.log('modal button is working')
+           console.log(textArea.value)
+           modal.style.display='flex'
+           modal.style.background='blue'
+        }
+        function handleModalClose(){
+            modal.style.display='none'
+        }
+        function handleSubmitForm(event){
+            //access event from inside the function using event
+            //default behaviour of the form is to refresh the page. so the below code prevents iot from refreshing.
+            event.preventDefault()
+
+        }
+        contentArea.innerHTML='<h1> welcome </h1>'
+        let newHTML= document.querySelector('#content-area h1')
+        newHTML.style.background='yellow'
+       
+        modalBtn.addEventListener('click', handleModalOpen )
+        
+        modalBtn2.addEventListener('click', handleModalClose )
+        xBtn.addEventListener('click',handleModalClose)
+    </script>
+
+</body>
+
+</html>

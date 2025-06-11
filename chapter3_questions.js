@@ -27,15 +27,19 @@ return hightest_age;
 }
 let oldest= oldestPerson();
 console.log(oldest);
-// //// 4. Array Sorting: Write a function that sorts an array of objects based on a specific property (e.g., 'price') in ascending order.
+//// 4. Array Sorting: Write a function that sorts an array of objects based on a specific property (e.g., 'price') in ascending order.
 
-// let array_of_objects = [
-//     { price: 4.2 },
-//     { price: 8.3 },
-//     { price: 2.2 }
+let array_of_objects = [
+    { price: 4.2 },
+    { price: 8.3 },
+    { price: 2.2 }
 
-// ]
-// array_of_objects.sort()
+]
+array_of_objects.sort(function(a,b){
+    return (a.price-b.price)
+    //if a.price>b.price sorts in descending order else ascending order
+})
+console.log('Sorted arry is', array_of_objects)
 
 // 5. Array Manipulation: Write a function that removes the first and last elements from an array and returns the modified array.
 
@@ -157,6 +161,20 @@ function oldFunction(){
 let inc=oldFunction()
 inc()
 inc()
+// 10. Array Sorting: Write a function that sorts an array of objects based on a specific property (e.g., 'date') in descending order.
+
+let grades_array = [
+    { subject: 'maths', grade: 10 },
+    { subject: 'spanish', grade: 2 },
+    { subject: 'literature', grade: 6 }
+]
+function sortByGrade(){
+    grades_array.sort(function(a,b){
+        return a.grade-b.grade
+    })
+    return grades_array
+}
+console.log("sorted arry is ", sortByGrade())
 // 11. Array Methods: Given an array of strings, filter out all the strings with a length less than 5 characters.
 
 let array_of_short_strings = ['hello', 'world', 'my', 'name', 'juan lopez', 'long word']
